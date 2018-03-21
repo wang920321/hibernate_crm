@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <!--配置表与实体对象的关系  -->
+    <!--package属性：填写一个包名,在元素内部反射需要书写完整类名的属性，可以直接写简单类名  -->
+<hibernate-mapping package="cn.itheima.domain">
+    <!--class元素:配置实体元素与表的对应关系
+        name:完整类目
+        table:数据库表名
+      -->
+    <class name="Customer" table="cst_customer">
+    <!--id:用来配置主键映射属性
+        name:填写主键对应属性名  
+        column:填写表中的主键列名    默认值:列名会默认使用属性名  若实体类的属性名和数据库字段完全对应，column可以不写
+      -->
+        <id name="cust_id" column="cust_id">
+            <!--generator:主键生成策略  -->
+            <generator class="native"></generator>
+        </id>
+        <!--property元素:除id外的普通属性映射  
+            name:填写属性名
+            column(可选):填写列名  默认值:列名会默认使用属性名
+            type(可选):填写该列(属性)的类型,若不填hibernate会自动检测实体的属性类型
+                                                  每个类型三种填法:java类型，hibernate类型，数据库类型
+        -->
+        <property name="cust_name" column="cust_name" type=""></property>
+        <property name="cust_source" column="cust_source"></property>
+        <property name="cust_industry" column="cust_industry"></property>
+        <property name="cust_level" column="cust_level"></property>
+        <property name="cust_linkman" column="cust_linkman"></property>
+        <property name="cust_phone" column="cust_phone"></property>
+        <property name="cust_mobile" column="cust_mobile"></property>
+    </class>
+</hibernate-mapping>    
