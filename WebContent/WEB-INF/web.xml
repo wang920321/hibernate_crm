@@ -28,4 +28,24 @@
     <servlet-name>AddCustomerServlet</servlet-name>
     <url-pattern>/addCustomer</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListCustomerServlet</display-name>
+    <servlet-name>ListCustomerServlet</servlet-name>
+    <servlet-class>cn.itheima.web.servlet.ListCustomerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListCustomerServlet</servlet-name>
+    <url-pattern>/listCustomer</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddLinkmanServlet</display-name>
+    <servlet-name>AddLinkmanServlet</servlet-name>
+    <servlet-class>cn.itheima.web.servlet.AddLinkmanServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddLinkmanServlet</servlet-name>
+    <url-pattern>/addLinkman</url-pattern>
+  </servlet-mapping>
 </web-app>

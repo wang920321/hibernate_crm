@@ -17,7 +17,10 @@
 */
 package cn.itheima.dao;
 
+import java.util.List;
+
 import cn.itheima.domain.Customer;
+import cn.itheima.domain.LinkMan;
 
 /**  
 
@@ -32,4 +35,38 @@ import cn.itheima.domain.Customer;
 */
 public interface CustomerDao {
     void save(Customer customer);
+
+	/**  
+	
+	 * Title: getAll  
+	
+	 * Description:  
+	
+	 * @return  
+	
+	 */ 
+	List<Customer> getAll();
+
+	/**  
+	
+	 * Title: addLinkMan  
+	
+	 * Description:  
+	
+	 * @param linkman  
+	
+	 */ 
+	void addLinkMan(LinkMan linkman);
+
+	/**  
+	
+	 * Title: getCustmerById  
+	
+	 * Description:  
+	
+	 * @param cust_id
+	 * @return  
+	
+	 */ 
+	Customer getCustmerById(Long cust_id);
 }

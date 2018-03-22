@@ -17,11 +17,15 @@
 */
 package cn.itheima.dao.impl;
 
+import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import cn.itheima.dao.CustomerDao;
 import cn.itheima.domain.Customer;
+import cn.itheima.domain.LinkMan;
 import cn.itheima.utils.HibernateUtils;
 
 /**  
@@ -51,15 +55,67 @@ public class CustemerDaoImpl implements CustomerDao {
 	@Override
 	public void save(Customer customer) {
 		//1获得session
-		Session session = HibernateUtils.openSession();
-		//2打开事务
-		Transaction tx = session.beginTransaction();
+		Session session = HibernateUtils.getCurrentSession();
+		
 		//3执行保存
 		session.save(customer);
-		//4提交事务
-        tx.commit();
-        //5关闭资源
-        session.close();
+
+	}
+
+	/* (non-Javadoc)  
+	
+	 * Title: getAll 
+	
+	 * Description:   
+	
+	 * @return  
+	
+	 * @see cn.itheima.dao.CustomerDao#getAll()  
+	
+	 */
+	@Override
+	public List<Customer> getAll() {
+		Session session = HibernateUtils.getCurrentSession();
+		Criteria criteria = session.createCriteria(Customer.class);
+		List<Customer> list = criteria.list();
+		return list;
+	}
+
+	/* (non-Javadoc)  
+	
+	 * Title: addLinkMan 
+	
+	 * Description:   
+	
+	 * @param linkman  
+	
+	 * @see cn.itheima.dao.CustomerDao#addLinkMan(cn.itheima.domain.LinkMan)  
+	
+	 */
+	@Override
+	public void addLinkMan(LinkMan linkman) {
+		Session session = HibernateUtils.getCurrentSession();
+		session.save(linkman);
+		
+	}
+
+	/* (non-Javadoc)  
+	
+	 * Title: getCustmerById 
+	
+	 * Description:   
+	
+	 * @param cust_id
+	 * @return  
+	
+	 * @see cn.itheima.dao.CustomerDao#getCustmerById(java.lang.Long)  
+	
+	 */
+	@Override
+	public Customer getCustmerById(Long cust_id) {
+		Session session = HibernateUtils.getCurrentSession();
+		Customer customer = session.get(Customer.class, cust_id);
+		return customer;
 	}
 
 }

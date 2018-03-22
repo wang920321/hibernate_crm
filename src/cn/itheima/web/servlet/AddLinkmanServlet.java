@@ -11,32 +11,34 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
 
 import cn.itheima.domain.Customer;
+import cn.itheima.domain.LinkMan;
 import cn.itheima.service.CustomerService;
 import cn.itheima.service.impl.CustomerServiceImpl;
 
-public class AddCustomerServlet extends HttpServlet {
+public class AddLinkmanServlet extends HttpServlet {
 
 	/**
 	 *serialVersionUID
 	 */  
 	private static final long serialVersionUID = 1L;
-	private CustomerService customerService=new CustomerServiceImpl();
-
+    private CustomerService service=new CustomerServiceImpl();
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//1获得参数并封装到Customer对象
-		Customer customer=new Customer();
+		LinkMan linkman=new LinkMan();
 		try {
-			BeanUtils.populate(customer, request.getParameterMap());
-		} catch (IllegalAccessException | InvocationTargetException e) {
+			BeanUtils.populate(linkman, request.getParameterMap());
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//2调用service
-		customerService.save(customer);
-		//3重定向到客户列表
-		response.sendRedirect(request.getContextPath()+"/listCustomer");
-		
+		//String cust_id = request.getParameter("cust_id");
+/*		Customer customer=new Customer();
+		customer.setCust_id(1l);
+		linkman.setCustomer(customer);*/
+		service.addLinkMan(linkman);
+		response.sendRedirect(request.getContextPath()+"/listLinkMan");
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

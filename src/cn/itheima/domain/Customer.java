@@ -17,6 +17,9 @@
 */
 package cn.itheima.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**  
 
 * Title: Customer  
@@ -47,6 +50,10 @@ public class Customer {
 	private String cust_linkman;
 	private String cust_phone;
 	private String cust_mobile;
+	private Set<LinkMan> linkMans=new HashSet<LinkMan>();
+	
+	
+
 	/**
 	 * @return the cust_id
 	 */
@@ -143,6 +150,19 @@ public class Customer {
 	 */
 	public void setCust_mobile(String cust_mobile) {
 		this.cust_mobile = cust_mobile;
+	}
+	
+	/**
+	 * @return the linkMans
+	 */
+	public Set<LinkMan> getLinkMans() {
+		return linkMans;
+	}
+	/**
+	 * @param linkMans the linkMans to set
+	 */
+	public void setLinkMans(Set<LinkMan> linkMans) {
+		this.linkMans = linkMans;
 	}
 	/* (non-Javadoc)  
 	

@@ -17,7 +17,10 @@
 */
 package cn.itheima.service;
 
+import java.util.List;
+
 import cn.itheima.domain.Customer;
+import cn.itheima.domain.LinkMan;
 
 /**  
 
@@ -32,4 +35,26 @@ import cn.itheima.domain.Customer;
 */
 public interface CustomerService {
 	void save(Customer customer);
+
+	/**  
+	
+	 * Title: getAll  
+	
+	 * Description:  
+	
+	 * @return  
+	
+	 */ 
+	List<Customer> getAll();
+
+	/**  
+	
+	 * Title: addLinkMan  
+	
+	 * Description:  
+	
+	 * @param linkman  
+	
+	 */ 
+	void addLinkMan(LinkMan linkman);
 }
