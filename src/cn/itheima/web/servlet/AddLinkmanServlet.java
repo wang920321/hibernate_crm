@@ -33,10 +33,7 @@ public class AddLinkmanServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//String cust_id = request.getParameter("cust_id");
-/*		Customer customer=new Customer();
-		customer.setCust_id(1l);
-		linkman.setCustomer(customer);*/
+
 		service.addLinkMan(linkman);
 		response.sendRedirect(request.getContextPath()+"/listLinkMan");
 	}
